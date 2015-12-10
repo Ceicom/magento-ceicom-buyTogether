@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout>
+    <ceicom_buytogether_inject_tab>
+        <reference name="product_tabs">
+            <action method="addTab">
+                <name>buytogether</name>
+                <block>ceicom_buytogether/adminhtml_catalog_product_edit_tab</block>
+            </action>
+        </reference>
+    </ceicom_buytogether_inject_tab>
+
+    <adminhtml_catalog_product_edit>
+        <update handle="ceicom_buytogether_inject_tab"/>
+    </adminhtml_catalog_product_edit>
+
+    <adminhtml_catalog_product_new>
+        <update handle="ceicom_buytogether_inject_tab" />
+    </adminhtml_catalog_product_new>
+
+    <adminhtml_catalog_product_buytogether>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="ceicom_buytogether/adminhtml_catalog_product_edit_tab_buytogether" name="catalog.product.edit.tab.buytogether"/>
+            <block type="adminhtml/widget_grid_serializer" name="buytogether_grid_serializer">
+                <reference name="buytogether_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.buytogether</grid_block_name>
+                        <data_callback>getSelectedBuytogetherProducts</data_callback>
+                        <hidden_input_name>links[buytogether]</hidden_input_name>
+                        <reload_param_name>products_buytogether</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_catalog_product_buytogether>
+
+    <adminhtml_catalog_product_buytogethergrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="ceicom_buytogether/adminhtml_catalog_product_edit_tab_buytogether" name="catalog.product.edit.tab.buytogether"/>
+        </block>
+    </adminhtml_catalog_product_buytogethergrid>
+
+</layout>

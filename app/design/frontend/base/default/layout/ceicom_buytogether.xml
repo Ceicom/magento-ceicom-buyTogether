@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout>
+
+    <catalog_product_view translate="label">
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/ceicom/buytogether.js</name></action>
+            <action method="addItem"><type>skin_css</type><name>css/ceicom/buytogether.css</name></action>
+        </reference>
+        <reference name="product.info">
+            <block type="ceicom_buytogether/catalog_product_list_buytogether" name="catalog.product.buytogether" before="-" template="ceicom/catalog/product/list/buytogether.phtml"/>
+        </reference>
+    </catalog_product_view>
+
+</layout>

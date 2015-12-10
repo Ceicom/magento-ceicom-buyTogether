@@ -1,0 +1,62 @@
+<?php if($this->getItems()->getSize()): ?>
+<?php
+$_product = Mage::registry('current_product');
+?>
+<div class="buytogether">
+    <h3><?php echo $this->__('Compre junto') ?></h3>
+    <?php foreach($this->getItems() as $_item): ?>
+    <?php $price = $_product->getPrice() + $_item->getPrice() ?>
+        <div id="buy-together-<?php echo $_item->getId() ?>" class="combo clearfix">
+            <div class="product current-product">
+                <div class="product-image">
+                    <img class="current-product-img product-image-together" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(167) ?>"
+                     alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+                </div>
+                <div class="product-details">
+                    <p class="current-product-name product-name-together"><?php echo $this->htmlEscape($_product->getName()) ?></p>
+                </div>
+                <div class="product-quantity">
+                    <p class="title">Quantidade</p>
+                    <select class="quantity current-quantity" name="quantity">
+                        <?php for ($i = 1; $i < 6; $i++): ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+            </div>
+            <div class="container-signals">
+                <div class="plus">+</div>
+            </div>
+
+            <div class="product together-product">
+                <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image">
+                    <img class="product-image-together together-product-image" src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(167) ?>"
+                    alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />
+                </a>
+                <div class="product-details">
+                    <p class="product-name-together"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
+                </div>
+                <div class="product-quantity">
+                    <p class="title">Quantidade</p>
+                    <select class="quantity together-quantity" name="quantity">
+                        <?php for ($i = 1; $i < 6; $i++): ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+            </div>
+            <div class="container-signals">
+                <div class="equals">=</div>
+            </div>
+            <div class="combo-result">
+                <span class="by">Por <span class="price-by-together"><?php echo Mage::helper('core')->formatPrice($price, true) ?></span></span>
+                <span class="installments-together">10 X DE <?php echo Mage::helper('core')->formatPrice($price/10, true) ?></span>
+                <button class="button-together" type="button" name="button" data-price="<?php echo $_item->getPrice() ?>" data-id="<?php echo $_item->getId() ?>"><?php echo $this->__('Add to Cart') ?></button>
+            </div>
+        </div>
+    <?php endforeach ?>
+</div>
+<script>
+buyTogether.init('<?php echo Mage::getBaseUrl() ?>', '<?php echo $_product->getId() ?>');
+</script>
+<?php endif ?>

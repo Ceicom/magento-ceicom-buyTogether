@@ -1,0 +1,105 @@
+.buytogether {
+    width: 100%;
+}
+
+.buytogether .product-image {
+    border: 0;
+    margin-bottom: 10px;
+}
+
+.product-image-together {
+    margin: 0 auto;
+}
+
+.product-quantity .title {
+    font-size: 15px;
+    color: #3399CC;
+}
+
+.product-quantity .quantity {
+    width: 55px;
+}
+
+.buytogether .plus,
+.buytogether .equals {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background-color: #D03539;
+    text-align: center;
+    line-height: 55px;
+    font-size: 33px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.combo-result {
+    width: 272px;
+    height: 236px;
+    background-color: #F2F2F2;
+    padding: 70px 20px 0;
+    margin: 0 auto 30px;
+}
+
+.by, .installments-together {
+    display: block;
+}
+
+.by {
+    color: #237EA9;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.installments-together {
+    color: #3A3838;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.button-together {
+    width: 235px;
+    height: 50px;
+    border: 0;
+    background-color: #1E7AA1;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 940px) {
+    .buytogether .product,
+    .buytogether .container-signals,
+    .combo-result {
+        float: left;
+    }
+    .buytogether .product,
+    .buytogether .container-signals {
+        width: 17.76%;
+    }
+    .buytogether .container-signals {
+        margin-top: 80px;
+    }
+    .combo-result {
+        width: 28.9%;
+    }
+
+    .button-together {
+        width: 86.39%;
+    }
+
+    .combo {
+        padding: 45px 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .product-name-together {
+        border-bottom: 1px solid #ccc;
+        color: #000;
+    }
+
+    .product-quantity {
+        margin-top: 15px;
+    }
+}
